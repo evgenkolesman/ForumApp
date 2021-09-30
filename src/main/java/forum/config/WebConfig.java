@@ -23,8 +23,8 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(ds).
                 usersByUsernameQuery("select name, password, enabled "
-                + "from users "
-                + "where name = ?")
+                        + "from users "
+                        + "where name = ?")
                 .authoritiesByUsernameQuery(
                         " select u.name, a.authority "
                                 + "from authorities as a, users as u "

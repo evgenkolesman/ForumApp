@@ -1,5 +1,6 @@
 package forum.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -15,18 +16,21 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class LoginControl {
+    Logger logger = Logger.getLogger(LoginControl.class);
+
     @GetMapping("/login")
     public String loginPage(@RequestParam(value = "error", required = false) String error,
                             @RequestParam(value = "logout", required = false) String logout,
                             Model model) {
-        String errorMessge = null;
+        String errorMessage = null;
         if (error != null) {
-            errorMessge = "Username or Password is incorrect !!";
+            errorMessage = "Username or Password is incorrect !!";
+            logger.debug(error);
         }
         if (logout != null) {
-            errorMessge = "You have been successfully logged out !!";
+            errorMessage = "You have been successfully logged out !!";
         }
-        model.addAttribute("errorMessge", errorMessge);
+        model.addAttribute("errorMessage", errorMessage);
         return "login";
     }
 
