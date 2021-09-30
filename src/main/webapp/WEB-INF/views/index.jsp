@@ -32,7 +32,6 @@
                     <td><c:out value="${post.name}"/></td>
                     <td><c:out value="${post.user.name}"/></td>
                 </tr>
-
             </c:forEach>
             </tbody>
         </table>

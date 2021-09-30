@@ -1,13 +1,24 @@
 package forum.model;
 
+import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Objects;
 
+@Entity
+@Table(name = "posts")
 public class Post {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String desc;
+    @Column(name = "created")
     private Calendar created;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     public static Post of(String name, User user) {
@@ -62,14 +73,11 @@ public class Post {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Post post = (Post) o;
-        return id == post.id &&
-                Objects.equals(name, post.name) &&
-                Objects.equals(desc, post.desc) &&
-                Objects.equals(created, post.created);
+        return id == post.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, desc, created);
+        return Objects.hash(id);
     }
 }
