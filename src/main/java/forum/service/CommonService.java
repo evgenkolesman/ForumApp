@@ -24,16 +24,6 @@ public class CommonService {
         posts.findAll().forEach(list::add);
         return list;
     }
-
-//    public List<User> getAllUsers() {
-//        List<User> list = new ArrayList<>();
-//        users.findAll().forEach(list::add);
-//        return list;
-//    }
-
-//    public static void main(String[] args) {
-//        posts.findAll().forEach(System.out::println);
-//        users.findAll().forEach(System.out::println);}
 }
 
 /**
