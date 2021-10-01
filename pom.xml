@@ -14,14 +14,23 @@
         <profile>
             <id>test</id>
             <properties>
-                <db.url>jdbc:h2:tcp://localhost:9092/default</db.url>
-                <db.username>postgres</db.username>
+                <db.url>jdbc:h2:mem:testdb;MODE=PostgreSQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE;</db.url>
+                <db.username></db.username>
                 <db.password></db.password>
-                <db.driver>org.Driver.h2</db.driver>
+                <db.driver>org.h2.Driver</db.driver>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <db.url>jdbc:postgresql://127.0.0.1:5433/forum_database</db.url>
+                <db.username>postgres</db.username>
+                <db.password>PassworD1</db.password>
+                <db.driver>org.postgresql.Driver</db.driver>
+            </properties>
         </profile>
     </profiles>
 
@@ -131,6 +140,27 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>ForumApp</finalName>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>forum.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
