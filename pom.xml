@@ -10,13 +10,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-
     <profiles>
         <profile>
             <id>test</id>
             <properties>
                 <db.url>jdbc:h2:mem:testdb;MODE=PosgreSQL;CASE_INTENTSITIVE_IDENTIFIRES~TRUE</db.url>
-                <db.username></db.username>
+                <db.username>test</db.username>
                 <db.password></db.password>
                 <db.driver>org.Driver.h2</db.driver>
             </properties>
@@ -68,12 +67,6 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
