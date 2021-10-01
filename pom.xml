@@ -142,7 +142,7 @@
                 <executions>
                     <execution><id>parent-id</id><phase>none</phase></execution>
                     <execution>
-                        <id>shade-my-jar</id>
+                        <id>test</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
