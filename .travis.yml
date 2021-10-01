@@ -1,5 +1,5 @@
 language: java
-
+script: mvn test
 jdk:
   - openjdk16
 
@@ -47,5 +47,5 @@ services:
                           description text,
                           created timestamp,
                         user_id  int references users(id)
-  );' -U test
+  );' -U
 #  - psql -c 'create database travis_ci_test;' -U postgres
