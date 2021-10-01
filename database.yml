@@ -1,3 +1,0 @@
-test:
-  adapter: h2
-  database: testdb
