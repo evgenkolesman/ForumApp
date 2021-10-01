@@ -29,4 +29,5 @@ services:
 
 # Create a database
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - h2 -c 'create database testdb;' -U test
+  #- psql -c 'create database travis_ci_test;' -U postgres
