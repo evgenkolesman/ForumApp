@@ -3,7 +3,6 @@ language: java
 jdk:
   - openjdk16
 
-
 #sudo: false
 
 env:
@@ -23,8 +22,11 @@ notifications:
 
 # Start PostgreSQL
 services:
-  - postgresql
+  - memcached
+#  - postgresql
+
 
 # Create a database
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+#before_script:
+#  - h2 -c 'create database if not exists testdb;' -U test
+#  - psql -c 'create database travis_ci_test;' -U postgres
