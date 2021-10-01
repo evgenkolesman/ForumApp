@@ -23,7 +23,7 @@ notifications:
 # Start PostgreSQL
 services:
   - memcached
-#  - postgresql
+  - postgresql
 
 
 # Create a database
@@ -48,4 +48,4 @@ services:
                           created timestamp,
                         user_id  int references users(id)
   );' -U test
-#  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database travis_ci_test;' -U postgres
