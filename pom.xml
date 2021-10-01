@@ -14,8 +14,8 @@
         <profile>
             <id>test</id>
             <properties>
-                <db.url>jdbc:h2:mem:testdb;MODE=PosgreSQL;CASE_INTENTSITIVE_IDENTIFIRES~TRUE</db.url>
-                <db.username>test</db.username>
+                <db.url>jdbc:h2:tcp://localhost:9092/default</db.url>
+                <db.username>postgres</db.username>
                 <db.password></db.password>
                 <db.driver>org.Driver.h2</db.driver>
             </properties>
@@ -92,6 +92,12 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.198</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
