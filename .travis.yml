@@ -3,7 +3,6 @@ language: java
 jdk:
   - openjdk16
 
-
 #sudo: false
 
 env:
@@ -30,4 +29,4 @@ services:
 # Create a database
 #before_script:
 #  - h2 -c 'create database if not exists testdb;' -U test
-  #- psql -c 'create database travis_ci_test;' -U postgres
+#  - psql -c 'create database travis_ci_test;' -U postgres
