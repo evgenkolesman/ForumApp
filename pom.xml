@@ -10,6 +10,23 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+
+    <profiles>
+        <profile>
+            <id>test</id>
+            <properties>
+                <db.url>jdbc:h2:mem:testdb;MODE=PosgreSQL;CASE_INTENTSITIVE_IDENTIFIRES~TRUE</db.url>
+                <db.username></db.username>
+                <db.password></db.password>
+                <db.driver>org.Driver.h2</db.driver>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
+
     <groupId>org.example</groupId>
     <artifactId>ForumApp</artifactId>
     <version>1.0-SNAPSHOT</version>
