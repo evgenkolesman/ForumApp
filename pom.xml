@@ -139,9 +139,9 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
                 <executions>
-                    <execution><id>parent-id</id>
-                        <phase>none</phase>
-                    </execution>
+<!--                    <execution><id>parent-id</id>-->
+<!--                        <phase>none</phase>-->
+<!--                    </execution>-->
                     <execution>
                         <id>test</id>
                         <phase>package</phase>

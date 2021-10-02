@@ -26,7 +26,7 @@ public class RegController {
         user.setEnabled(true);
         user.setPassword(encoder.encode(user.getPassword()));
         user.setAuthority(service.findByAuthority("ROLE_USER"));
-        if (service.findUserById(user.getId()) == null && service.findUserByName(user.getName()) == null) {
+        if (service.findUserByName(user.getName()) == null) {
             service.saveOrEdit(user);
         } else {
             model.addAttribute("errorMessage", "Please try to register with another Username");
