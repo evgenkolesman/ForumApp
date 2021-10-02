@@ -3,6 +3,7 @@ package forum.model;
 import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Objects;
+import java.util.TimeZone;
 
 @Entity
 @Table(name = "posts")
@@ -25,6 +26,7 @@ public class Post {
         Post post = new Post();
         post.name = name;
         post.user = user;
+        post.created = Calendar.getInstance();
         return post;
     }
 

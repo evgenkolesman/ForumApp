@@ -41,8 +41,20 @@ public class CommonService {
         return users.findUserById(id);
     }
 
-    public void saveOrEdit(User user) {
+    public void saveOrEditUser(User user) {
         users.save(user);
+    }
+
+    public void saveOrEditPost(Post post) {
+        posts.save(post);
+    }
+
+    public Post findPostById(Integer id) {
+        return posts.findPostById(id);
+    }
+
+    public void deletePostById(int id) {
+        posts.deleteById(id);
     }
 }
 
