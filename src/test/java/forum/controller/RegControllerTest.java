@@ -91,8 +91,8 @@ class RegControllerTest {
 /**
  *     Если писать такую заглушку вначале (аналогично user)
  *     почему то не работает
- * //        Authority authority = new Authority();
- * //        authority.setAuthority("ROLE_USER");
- * //        Mockito.when(authorityRepository.findByAuthority("ROLE_USER")).thenReturn(authority1);
+ *        Authority authority = new Authority();
+ *        authority.setAuthority("ROLE_USER");
+ *         Mockito.when(authorityRepository.findByAuthority("ROLE_USER")).thenReturn(authority1);
  *
  */
