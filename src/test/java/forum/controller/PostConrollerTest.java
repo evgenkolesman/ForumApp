@@ -2,10 +2,11 @@ package forum.controller;
 
 import forum.Main;
 import forum.model.Post;
-import forum.repository.PostRepository;
 import forum.service.CommonService;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,11 +14,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.ui.Model;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -27,9 +30,9 @@ class PostConrollerTest {
 
     @MockBean
     private CommonService service;
-    @MockBean
-    private PostRepository repo;
 
+    @InjectMocks
+    private PostConroller controller;
     @Autowired
     private MockMvc mockMvc;
 
@@ -43,39 +46,35 @@ class PostConrollerTest {
     }
 
     @Test
-    @WithMockUser
-    public void shouldReturnDefaultMessage() throws Exception {
-        this.mockMvc.perform(get("/create")
+    @WithMockUser(username = "test")
+    public void shouldReturnDefaultMessageSave() throws Exception {
+        this.mockMvc.perform(post("/save").param("id", String.valueOf(1))
                         .param("name", "Куплю ладу-грант. Дорого."))
                 .andDo(print())
-                .andExpect(status().is2xxSuccessful());
-        ArgumentCaptor<Post> argument = ArgumentCaptor.forClass(Post.class);
-        verify(repo).save(argument.capture());
-        assertThat(argument.getValue().getName(), is("Куплю ладу-грант. Дорого."));
-    }
-
-    @Test
-    @WithMockUser(username = "test")
-    public void testSavePost() throws Exception {
-        this.mockMvc.perform(post("/save")
-                        .param("name", "Куплю ладу-грант. Дорого.").param("user", "test"))
-                .andDo(print())
                 .andExpect(status().is3xxRedirection());
+
         ArgumentCaptor<Post> argument = ArgumentCaptor.forClass(Post.class);
         verify(service).saveOrEditPost(argument.capture());
-        assertThat(argument.getValue().getUser().getName(), is("test"));
         assertThat(argument.getValue().getName(), is("Куплю ладу-грант. Дорого."));
-
+        assertThat(argument.getValue().getId(), is(1));
     }
 
     @Test
     @WithMockUser(username = "test")
-    public void testUpdatePost() throws Exception {
+    public void testCreatePostWithInjectMock() throws Exception {
         Post post = new Post();
-        service.saveOrEditPost(post);
-        Assert.
-
-
+        post.setName("Куплю ладу-грант. Дорого.");
+        post.setDesc("Куплю ладу-грант. Дорого.");
+        String res = controller.create();
+        Assert.assertThat(res, is("/create"));
     }
 
+    @Test
+    @WithMockUser(username = "test")
+    public void testDeleteMethod() throws Exception {
+        this.mockMvc.perform(get("/delete").param("id", "2")
+                        .param("name", "Куплю ладу-грант. Дорого.").param("desc", "Куплю ладу-грант. Дорого."))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection());
+    }
 }
