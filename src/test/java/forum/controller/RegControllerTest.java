@@ -5,7 +5,6 @@ import forum.model.Authority;
 import forum.model.User;
 import forum.repository.AuthorityRepository;
 import forum.service.CommonService;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -49,7 +48,6 @@ class RegControllerTest {
                 .andExpect(view().name("reg"));
     }
 
-
     @Test
     @WithMockUser
     public void shouldReturnDefaultMessageRedirect() throws Exception {
@@ -65,14 +63,6 @@ class RegControllerTest {
                 .andExpect(status().is3xxRedirection());
     }
 
-    /**
-     *     Если писать такую заглушку вначале (аналогично user)
-     *     почему то не работает
-     * //        Authority authority = new Authority();
-     * //        authority.setAuthority("ROLE_USER");
-     * //        Mockito.when(authorityRepository.findByAuthority("ROLE_USER")).thenReturn(authority1);
-     *
-     */
     @Test
     @WithMockUser
     public void whenSuccessfullyReg() throws Exception {
@@ -96,5 +86,13 @@ class RegControllerTest {
         Assertions.assertEquals("password", userFinal.getPassword());
         Assertions.assertEquals("ROLE_USER", userFinal.getAuthority().getAuthority());
     }
-
 }
+
+/**
+ *     Если писать такую заглушку вначале (аналогично user)
+ *     почему то не работает
+ * //        Authority authority = new Authority();
+ * //        authority.setAuthority("ROLE_USER");
+ * //        Mockito.when(authorityRepository.findByAuthority("ROLE_USER")).thenReturn(authority1);
+ *
+ */
