@@ -1,6 +1,7 @@
 package forum.model;
 
 import javax.persistence.*;
+import java.text.MessageFormat;
 import java.util.Objects;
 
 @Entity
@@ -79,6 +80,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{id=%d, name='%s', password='%s'}".formatted(id, name, password);
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", enabled=").append(enabled);
+        sb.append(", authority=").append(authority);
+        sb.append('}');
+        return sb.toString();
     }
 }
