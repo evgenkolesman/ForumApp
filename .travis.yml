@@ -5,6 +5,9 @@ jdk:
 
 sudo: false
 
+install: true
+
+script: mvn clean package -DskipTests=true
 env:
   global:
     -CODECOV_TOKEN='6df51d2a-7a56-4f2e-a100-570d39128181'

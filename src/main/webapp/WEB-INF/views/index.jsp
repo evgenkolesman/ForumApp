@@ -22,8 +22,10 @@
         <table class="table">
             <thead>
             <tr>
+                <th>Кнопка редактирования</th>
                 <th scope="col">Тема</th>
                 <th scope="col">Пользователь</th>
+                <th>Кнопка удаления</th>
             </tr>
             </thead>
             <tbody>
