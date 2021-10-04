@@ -15,10 +15,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <java.version>1.8</java.version>
-        <packaging>war</packaging>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>16</java.version>
     </properties>
 
     <profiles>
@@ -120,6 +119,10 @@
             <artifactId>liquibase-core</artifactId>
             <version>3.6.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -172,7 +175,8 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <plugin><inherited>true</inherited>
+
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>

@@ -1,34 +1,23 @@
 language: java
-
 jdk:
-  - openjdk16
-
+- openjdk16
 sudo: false
-
 install: true
-
 script: mvn clean package -DskipTests=true
 env:
-  global:
-    -CODECOV_TOKEN='6df51d2a-7a56-4f2e-a100-570d39128181'
-# после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
-# Здесь используется сторонни сервис https://codecov.io/
+  global: CODECOV_TOKEN=6df51d2a-7a56-4f2e-a100-570d39128181
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
+- bash <(curl -s https://codecov.io/bash)
 notifications:
   email:
     recipients:
-      - glavstroi_e@mail.ru
-    on_success: never # default: change
-    on_failure: always # default: always
-
-# Start PostgreSQL
+    - glavstroi_e@mail.ru
+    on_success: never
+    on_failure: always
 services:
-  - memcached
-#  - postgresql
-
-
-# Create a database
-#before_script:
-#  - psql -c 'create database travis_ci_test;' -U postgres
+- memcached
+deploy:
+  provider: heroku
+  api_key:
+    secure: zXS8fF++8YONZRVvE6TR4HHEhRhBHmE1xsmyc2kMBiOynXSXXI08rbp0nELZIOA0fXUu+DUymPiYJnEzKWa6aCf4SuEAzfeAFNCRy3MAwI93ZA/jC5qC8+m2E6ZTK5dDaKPBj7n/2zo4WgnGvOPt+m0JzQaXjd7nO1tFFlr0Bi5rUyov1IBtsPrt2Gte4xGAp2Xr0k24pJHlXwcs55Jh+yS8gkUsfNZUwmtdpv4dCvYPfFVcf19GgodZ+mcWIInS5whyklE1GSrCNy1XoOJKVAK0aeOlYt9r7ZPSqgYytfcqU3gbDPhQgC4+oCeiTCa7RSfDwXeaWotExR6iPEy1leRPUvDDg/PcNNPQp29DUajEE8Y0QI35Vteh0K5Etxx0al2f3+PXVkIT8tru7lhfGamhfwZjrr6eieFfhOEQ/66PnMrpbCzsgdNtcuWIQmJ/4VgJQTOXJXKL+zXcW0osnIqSfglGcgqCB9LJk6Fx9QJuF8PqMttse3lUJBm7kHsPaM6M3xgUEDda6TIQKLxHC7X/TRgxmPGzRKsowPnYG9T4XA8EfzixLq4N0jOQXbOKuoiF7TLkSfoV7klli5ncQfhBj1fdRNoEr8EE9twSQGz+c2IxE9JKnRgPH6jWiGKMc28BW2nPdJTiMnpmhBdzmJzz+Q35AG900MnhQPBHcWs=
+  app: fathomless-ocean-89989

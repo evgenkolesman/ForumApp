@@ -1,2 +1,4 @@
-insert into posts (name, description) values ('О чем этот форум? 1' ,'test');
-insert into posts (name, description) values ('Правила форума. 1', 'test');
+
+insert into posts (name, description, user_id) values ('О чем этот форум?' ,'test', 7);
+insert into posts (name, description, user_id) values ('Правила форума.', 'test', 10);
+
