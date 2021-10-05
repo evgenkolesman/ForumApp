@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS authorities(
                                           id serial primary key,
-                                          aurhotrity text
+                                          authority text
 );
 CREATE TABLE IF NOT EXISTS users(
                                     id serial primary key,
