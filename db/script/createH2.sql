@@ -19,9 +19,9 @@ CREATE TABLE IF NOT EXISTS posts
     created     timestamp,
     user_id     int references users (id)
 );
-INSERT INTO AUTHORITIES (authority)
-VALUES ('ADMIN');
-INSERT INTO Users (name, authority_id)
-VALUES ('ADMIN', 1);
-insert into AUTHORITIES (authority)
-values ('ROLE_USER ')
+-- INSERT INTO AUTHORITIES (authority)
+-- VALUES ('ADMIN');
+-- INSERT INTO Users (name, authority_id)
+-- VALUES ('ADMIN', 1);
+-- insert into AUTHORITIES (authority)
+-- values ('ROLE_USER ')
