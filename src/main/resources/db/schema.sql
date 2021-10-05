@@ -1,5 +1,3 @@
-drop table databasechangelog, databasechangeloglock;
-
 create table if not exists authorities
 (
     id        serial primary key,
