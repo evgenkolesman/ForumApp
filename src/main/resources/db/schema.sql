@@ -1,6 +1,6 @@
 create table if not exists authorities
 (
-    id         serial primary key,
+    id        serial primary key,
     authority text
 );
 create table if not exists users
