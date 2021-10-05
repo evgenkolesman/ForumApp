@@ -14,11 +14,11 @@ Spring Boot application (приложение Spring Boot)
 будет возможность перейти по ссылке по названию в саму тему и там писать комменты для общения между форумчанами.
 Вот начальные фото данного проекта:
    1. Страница регистрации (промежуточный вид):
-[![](images readme FORUMAPP/reg.png)]
+![alt text](images readme FORUMAPP/reg.png)
    2. Страница авторизации (промежуточный вид):
-[![](images readme FORUMAPP/login.png)]
+![alt text](images readme FORUMAPP/login.png)
    3. Основная страница (промежуточный вариант):
-[![](images readme FORUMAPP/main page.png)]
+![alt text](images readme FORUMAPP/main page.png)
 2. Сборка и компоновка пока в разарботке
 3. Использование предполагается в качестве форума с возможностью добавление тем и 
 коментариев для авторизованных пользователей 
