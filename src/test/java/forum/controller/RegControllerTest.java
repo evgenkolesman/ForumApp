@@ -1,6 +1,6 @@
 package forum.controller;
 
-import forum.Main;
+import forum.MainTest;
 import forum.model.Authority;
 import forum.model.User;
 import forum.repository.AuthorityRepository;
@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-@SpringBootTest(classes = Main.class)
+@SpringBootTest(classes = MainTest.class)
 @AutoConfigureMockMvc
 class RegControllerTest {
 
