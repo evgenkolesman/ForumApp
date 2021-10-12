@@ -1,7 +1,6 @@
 package forum;
 
 import liquibase.integration.spring.SpringLiquibase;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -12,7 +11,6 @@ import org.springframework.test.context.TestPropertySource;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-@Slf4j
 @TestPropertySource(value = "test.properties")
 public class MainTest extends SpringBootServletInitializer {
     @Override
