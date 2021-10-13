@@ -3,7 +3,6 @@ package forum.controller;
 import forum.MainTest;
 import forum.model.Authority;
 import forum.model.User;
-import forum.repository.AuthorityRepository;
 import forum.service.CommonService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -32,9 +31,6 @@ class RegControllerTest {
 
     @MockBean
     private CommonService service;
-
-    @MockBean
-    private AuthorityRepository authorityRepository;
 
     @MockBean
     private PasswordEncoder passwordEncoder;

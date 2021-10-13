@@ -11,7 +11,6 @@ import org.springframework.test.context.TestPropertySource;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-@TestPropertySource(value = "test.properties")
 public class MainTest extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
